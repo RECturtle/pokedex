@@ -7,7 +7,7 @@ import (
 	"github.com/recturtle/pokedexcli/internal/pokecache"
 )
 
-const defaultBaseURL = "https://pokeapi.co/api/v2/"
+const DefaultBaseURL = "https://pokeapi.co/api/v2/"
 
 type Client struct {
 	baseURL    string
@@ -15,9 +15,9 @@ type Client struct {
 	cache      *pokecache.Cache
 }
 
-func NewClient() *Client {
+func NewClient(baseURL string) *Client {
 	return &Client{
-		baseURL:    defaultBaseURL,
+		baseURL:    baseURL,
 		httpClient: http.DefaultClient,
 		cache:      pokecache.NewCache(20 * time.Second),
 	}

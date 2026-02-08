@@ -26,7 +26,7 @@ func cleanInput(text string) []string {
 
 func startRepl() {
 	scanner := bufio.NewScanner(os.Stdin)
-	client := pokeapi.NewClient()
+	client := pokeapi.NewClient(pokeapi.DefaultBaseURL)
 	config := &Config{
 		Client:  client,
 		Pokedex: make(map[string]pokeapi.Pokemon),
